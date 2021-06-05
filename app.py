@@ -8,6 +8,8 @@ cursor = conn.cursor()
 cursor.execute("SELECT * FROM blog_post")
 
 
+# would creating a user and their posts be a good time to make a class
+# I'm confused about when it's overkill/not
 def get_username():
     return input("Please enter your username: ")
 
