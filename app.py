@@ -1,10 +1,11 @@
 import dbcreds
 import mariadb
 import traceback
-# I'm might currently be thinking: but Alex, if we change a thing in the dbeaver file for
+# I might currently be thinking: but Alex, if we change a thing in the dbeaver file for
 # bonus 2 to have a user_id as an FK to users instead of a username, how will you be able
 # to use this code with the dbeaver downloadable file you provided us?
-# And Alex would say: You're right! But.....
+# And Alex would say: You're right! But.......
+# ..........I'm thinking something along the lines of innerjoin so I'll try that
 conn = mariadb.connect(database=dbcreds.database, host=dbcreds.host,
                        port=dbcreds.port, user=dbcreds.user, password=dbcreds.password)
 # creating cursor to execute queries on the DB
@@ -58,14 +59,14 @@ while True:
             continue
         elif selection == 3:
             break
+        # I think this else makes ctrl c stop working in the terminal after I input a letter...
+        # but.... it doesn't matter since we won't be using the terminal for this IRL right?
+        # or would I use an exception here somehow...the traceback says beyboard interrupt
         else:
             print("I specifically said 1, 2 or 3.... :)")
             continue
         break
     except ValueError:
-        # this else makes ctrl c stop working in the terminal after I input a letter...
-        # but.... it doesn't matter since we won't be using the terminal for this IRL right?
-        # or would I use an exception here somehow...
         print("Plz... just enter 1, 2 or 3.....")
     except:
         print("Sorry something went wrong")
