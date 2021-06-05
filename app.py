@@ -24,7 +24,9 @@ def get_posts():
     cursor.execute("SELECT username, content FROM blog_post")
     # fetchall to get all posts
     all_posts = cursor.fetchall()
-    print(f"All users' posts: {all_posts}")
+    for post in all_posts:
+        print(f"Username: {post[0]} \n  Content: {post[1]}")
+    # print(f"All users' posts: {all_posts}")
 
 
 def create_post():
@@ -56,6 +58,7 @@ while True:
                 continue
         elif selection == 2:
             get_posts()
+
             continue
         elif selection == 3:
             break
